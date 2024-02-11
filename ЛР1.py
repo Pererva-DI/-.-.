@@ -172,7 +172,7 @@ class Income:
         if not isinstance(rate, (int, float)):
             raise TypeError("Курс перевода должен быть типа 'int' или 'float'")
         if rate <= 0:
-            raise ValueError("Курс перевода должно быть положительным числом")
+            raise ValueError("Курс перевода должен быть положительным числом")
         ...
 
     def increase(self, inc_value: float) -> None:
