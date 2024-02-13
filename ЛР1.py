@@ -154,19 +154,19 @@ class Income:
 
     def exchange(self, new_currency: str, rate: float) -> None:
         """
-                Функция переводит валюту в другую согласно курсу
+        Функция переводит валюту в другую согласно курсу
 
-                :param new_currency: Новая валюта
-                :param rate: Курс перевода в новую валюту
+        :param new_currency: Новая валюта
+        :param rate: Курс перевода в новую валюту
 
-                :raise TypeError: Валюта должна быть типа 'str'
-                :raise TypeError: Курс перевода должен быть типа 'int' или 'float'
-                :raise ValueError: Курс перевода должен быть положительным числом
+        :raise TypeError: Валюта должна быть типа 'str'
+        :raise TypeError: Курс перевода должен быть типа 'int' или 'float'
+        :raise ValueError: Курс перевода должен быть положительным числом
 
-                Пример:
-                >>> income = Income("Пенсия", "Рубли", 30000)
-                >>> income.exchange("Евро", 0.01)
-                """
+        Пример:
+        >>> income = Income("Пенсия", "Рубли", 30000)
+        >>> income.exchange("Евро", 0.01)
+        """
         if not isinstance(new_currency, str):
             raise TypeError("Валюта должна быть типа 'str'")
         if not isinstance(rate, (int, float)):
