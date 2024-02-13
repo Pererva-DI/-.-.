@@ -14,8 +14,21 @@ BOOKS_DATABASE = [
 
 class Book:
     def __init__(self, id_: int, name: str, pages: int):
+        """
+        Создание и подготовка к работе объекта "Книга"
+
+        :param id_: Идентификатор книги
+        :param name: Название книги
+        :param pages: Количество страниц в книге
+        """
+        if not isinstance(id_, int):
+            raise TypeError("Идентификатор книги должен быть типа 'int'")
         self.id = id_
+        if not isinstance(name, str):
+            raise TypeError("Название книги должно быть типа 'str'")
         self.name = name
+        if not isinstance(pages, int):
+            raise TypeError("Количество страниц в книге должно быть типа 'int'")
         self.pages = pages
 
     def __str__(self) -> str:
