@@ -22,11 +22,19 @@ class Book:
 class PaperBook(Book):
     def __init__(self, pages: int, name: str, author: str):
         super().__init__(name, author)
-        if not isinstance(pages, int):
-            raise TypeError('Количество страниц должно быть типа "int"')
-        if pages <= 0:
-            raise ValueError('Количество страниц должно быть положительным числом')
         self.pages = pages
+
+        @property
+        def pages(self) -> int:
+            return self._pages
+
+        @pages.setter
+        def pages(self, new_pages: int) -> None:
+            if not isinstance(new_pages, int):
+                raise TypeError('Количество страниц должно быть типа "int"')
+            if new_pages <= 0:
+                raise ValueError('Количество страниц должно быть положительным числом')
+            self._pages = new_pages
 
     def __repr__(self):
         return f'{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, pages={self.pages!r})'
@@ -35,12 +43,20 @@ class PaperBook(Book):
 class AudioBook(Book):
     def __init__(self, duration: float, name: str, author: str):
         super().__init__(name, author)
-        if not isinstance(duration, (float, int)):
-            raise TypeError('Продолжительность должна быть типа "float" или "int"')
-        if duration <= 0:
-            raise ValueError('Продолжительность должна быть положительным числом')
         self.duration = duration
 
+        @property
+        def duration(self) -> float:
+            return self._duration
+
+        @duration.setter
+        def duration(self, new_duration: float) -> None:
+            if not isinstance(new_duration, (float, int)):
+                raise TypeError('Продолжительность должна быть типа "float" или "int"')
+            if new_duration <= 0:
+                raise ValueError('Продолжительность должна быть положительным числом')
+            self._duration = new_duration
+            
     def __repr__(self):
         return f'{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, duration={self.duration!r})'
 
